@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoriteCellDesign: UIView {
+public class FavoriteCellDesign: UIView {
 
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblSubTitle: UILabel!
@@ -18,22 +18,22 @@ class FavoriteCellDesign: UIView {
     @IBOutlet weak var btnChevronRigth: UIButton!
     
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         self.frame = frame
         print("celldesign",self.frame.size)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    func fill(title: String, subTitle: String) {
+    public func fill(title: String, subTitle: String) {
         self.lblTitle.text = title
         self.lblSubTitle.text = subTitle
     }
     
-    func setSelected(selected: Bool){
+    public func setSelected(selected: Bool){
         if selected{
             self.viewBackgroundContainer.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.3137254902, blue: 0.231372549, alpha: 1)
             self.lblTitle.textColor = UIColor.white
@@ -52,32 +52,32 @@ class FavoriteCellDesign: UIView {
 }
 
 extension UIView {
-    func loadNib() -> UIView {
+    public func loadNib() -> UIView {
         let bundle = Bundle(for: type(of: self))
         let nibName = type(of: self).description().components(separatedBy: ".").last!
         let nib = UINib(nibName: nibName, bundle: bundle)
         return nib.instantiate(withOwner: self, options: nil).first as! UIView
     }
     
-    func roundCornersTop(){
+    public func roundCornersTop(){
         self.clipsToBounds = true
         self.layer.cornerRadius = 8
         self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
-    func roundCornersBottom(){
+    public func roundCornersBottom(){
         self.clipsToBounds = true
         self.layer.cornerRadius = 8
         self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
     
-    func roundCorners(){
+    public func roundCorners(){
         self.clipsToBounds = true
         self.layer.cornerRadius = 8
         self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
     
-    func dropShadow(scale: Bool = true, opacity: Float = 0.3, radius: CGFloat = 0.8, offSet: CGSize = CGSize(width: 1, height: 1)) {
+    public func dropShadow(scale: Bool = true, opacity: Float = 0.3, radius: CGFloat = 0.8, offSet: CGSize = CGSize(width: 1, height: 1)) {
         self.layer.masksToBounds = false
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = opacity

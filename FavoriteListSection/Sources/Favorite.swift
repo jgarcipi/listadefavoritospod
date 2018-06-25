@@ -9,13 +9,13 @@
 
 import Foundation
 
-class Favorite {
-    var title: String?
-    var subtitle: String?
+public class Favorite {
+    open var title: String?
+    open var subtitle: String?
     
-    init(){}
+    public init(){}
     
-    init(title: String, subtitle: String) {
+    public init(title: String, subtitle: String) {
         self.title = title
         self.subtitle = subtitle
     }    

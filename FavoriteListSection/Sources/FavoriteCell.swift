@@ -8,27 +8,27 @@
 
 import UIKit
 
-enum FavoriteCellType {
+public enum FavoriteCellType {
     case one
     case first
     case normal
     case last
 }
 
-class FavoriteCell: UITableViewCell {
+public class FavoriteCell: UITableViewCell {
 
-    var width: CGFloat?
-    var heigth: CGFloat?
-    var typeCell: FavoriteCellType?
-    var viewBackground: FavoriteCellDesign?
+    open var width: CGFloat?
+    open var heigth: CGFloat?
+    open var typeCell: FavoriteCellType?
+    open var viewBackground: FavoriteCellDesign?
     
     // MARK: - Self Methods
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    init(type: FavoriteCellType, width: CGFloat, height: CGFloat, reuseIdentifier: String?) {
+    public init(type: FavoriteCellType, width: CGFloat, height: CGFloat, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         self.width = width
         self.heigth = height
@@ -37,7 +37,7 @@ class FavoriteCell: UITableViewCell {
         print(self.frame.size.height)
     }
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         self.backgroundColor = .clear
         let rectCell = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.width!, height: self.heigth!))
         print(rectCell)
@@ -69,11 +69,11 @@ class FavoriteCell: UITableViewCell {
         
     }
     
-    func config(title: String, subTitle: String) {
+    public func config(title: String, subTitle: String) {
         self.viewBackground?.fill(title: title, subTitle: subTitle)
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override public func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         self.selectionStyle = .none
         
@@ -84,7 +84,7 @@ class FavoriteCell: UITableViewCell {
         }
     }
     
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+    override public func setHighlighted(_ highlighted: Bool, animated: Bool) {
         if highlighted {
             self.viewBackground?.setSelected(selected: true)
         } else {

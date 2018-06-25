@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "FavoriteTableView"
-  s.version      = "1.3"
+  s.version      = "2.0"
   s.summary      = "Nice design to a TableView"
 
   s.description  = <<-DESC

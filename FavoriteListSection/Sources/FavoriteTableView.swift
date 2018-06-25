@@ -8,18 +8,18 @@
 
 import UIKit
 
-protocol FavoriteTableViewDelegate {
+public protocol FavoriteTableViewDelegate {
     func didSelectRowAt(indexPath: IndexPath)
 }
 
-class FavoriteTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+public class FavoriteTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 
-    var heightCell: CGFloat = 50.0
-    var listFavorites: [Favorite] = [Favorite]()
+    open var heightCell: CGFloat = 50.0
+    open var listFavorites: [Favorite] = [Favorite]()
     
-    var delegateFavorite: FavoriteTableViewDelegate?
+    open var delegateFavorite: FavoriteTableViewDelegate?
     
-    func configure(list: [Favorite], heightCell: CGFloat  = 50.0, bounces: Bool = false){
+    public func configure(list: [Favorite], heightCell: CGFloat  = 50.0, bounces: Bool = false){
         if heightCell <= 50.0 {
             self.heightCell = 50.0
         } else {
@@ -34,15 +34,15 @@ class FavoriteTableView: UITableView, UITableViewDelegate, UITableViewDataSource
         self.bounces = bounces
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.listFavorites.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       print(self.frame.size.width)
         if self.listFavorites.count == 1 {
             let cell = FavoriteCell(type: .one, width: self.frame.size.width, height: self.heightCell, reuseIdentifier: "cell")
@@ -68,11 +68,11 @@ class FavoriteTableView: UITableView, UITableViewDelegate, UITableViewDataSource
         
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return  self.heightCell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.delegateFavorite?.didSelectRowAt(indexPath: indexPath)
         let cell = self.cellForRow(at: indexPath)
