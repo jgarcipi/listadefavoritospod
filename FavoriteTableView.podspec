@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "FavoriteTableView"
-  s.version      = "1.1"
+  s.version      = "1.3"
   s.summary      = "Nice design to a TableView"
 
   s.description  = <<-DESC
@@ -20,6 +20,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '11.3'
 
   s.requires_arc     = true
+  s.ios.frameworks = 'UIKit', 'Foundation'
 
   s.source_files  = "FavoriteListSection/Sources/*.{swift}"
 
