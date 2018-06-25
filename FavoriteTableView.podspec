@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "FavoriteTableView"
-  s.version      = "1.0"
+  s.version      = "1.1"
   s.summary      = "Nice design to a TableView"
 
   s.description  = <<-DESC
@@ -18,6 +18,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://DianaVera@bitbucket.org/DianaVera/favoritetableview.git", :tag => "#{s.version}" }
   s.swift_version = '4.1'
   s.ios.deployment_target = '11.3'
+
+  s.requires_arc     = true
 
   s.source_files  = "FavoriteListSection/Sources/*.{swift}"
 
